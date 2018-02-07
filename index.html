@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en-EN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <meta name="HandheldFriendly" content="True"/>
+    <meta http-equiv="cleartype" content="on"/>
+    <title>Test RiverSoft - Alexandra Kalinichenko</title>
+    <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, optio?"/>
+    <meta name="keywords" content="lorem, ipsum, dolor"/>
+    <meta name="author" content=""/>
+    <meta name="copyright" content="(c)">
+    <meta http-equiv="Reply-to" content="alessandra.arisu@gmail.com">
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/dx.light.css">
+    <link rel="stylesheet" href="css/dx.common.css">
+    <link rel="stylesheet" href="css/dx.spa.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    <script src="js/preloader.js"></script>
+    <script src="https://cdn3.devexpress.com/jslib/17.1.5/js/dx.all.js"></script>
+    <!--Horizontal Scroll-->
+    <script type='text/javascript' src='js/jquery.mousewheel.min.js'></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/asvd/dragscroll/master/dragscroll.js"></script>
+    <script src="js/jquery.scrollbar.js"></script>
+    <script>
+        jQuery(document).ready( function ($) {
+            //preloader
+            $(window).load(function () {
+                setTimeout(function(){
+                    $('#preloader').fadeOut('slow', function () {
+                    });
+                },2000);
+            });
+            //other scripts
+            $('.scrollbar-inner').scrollbar();
+            $(document).ready(funContent);
+            function funContent() {
+                $(".js-horizontal-scroll").wrapInner("<table class='js-horizontal-scroll__space' cellspacing='30'><tr class='js-horizontal-scroll__space__row'>");
+                $(".js-horizontal-scroll__item").wrap("<td class='js-horizontal-scroll__space__cell'></td>");
+                $('.dragscroll input').click(function() {
+                    $('.b-content-priority__input__button').hide();
+                    $(this).focus();
+                    $(this).closest('.b-content-block').find('.b-content-priority__input__button').show();
+                });
+            };
+            // menu toogle
+            $(".icon-close-menu").click(function () {
+                $(this).closest(".b-content").toggleClass('open-menu');
+            });
+            $(window).resize(function() {
+                if($(window).width() >= 480) {
+                    $('#container').height($(document).height()-$('.b-content__work-space__panel_top').height()-30);
+                    $('.b-content-row__cell').height($(document).height()-$('.b-content__work-space__panel_top').height()-30);
+                } else {
+                }
+            }).resize();
+        });
+    </script>
+    <!--Horizontal Scroll END-->
+</head>
+<body>
+    <div id="preloader"></div>
+    <div class="b-content">
+        <div class="b-content__nav">
+            <ul class="b-nav dragscroll">
+                <li class="b-nav__top-brend"><div class="b-brend-logo hide-w-d hide-w-m">To Do</div>
+                    <i class="material-icons hide-w-d hide-w-m hide">keyboard_backspace</i><i class="hide material-icons icon-close-menu">menu</i>
+                </li>
+                <li class="b-nav__item hover"><i class="material-icons icon-nav">dashboard</i>
+                    <span class="b-nav__item__text">Project 1</span>
+                </li>
+                <li class="b-nav__item hover active-page"><i class="material-icons icon-nav">people</i>
+                    <span class="b-nav__item__text">Project 2</span>
+                </li>
+                <li class="b-nav__item hover"><i class="material-icons icon-nav">folder</i>
+                    <span class="b-nav__item__text">Project 3</span>
+                </li>
+                <li class="b-nav__item hover"><i class="material-icons icon-nav">person</i>
+                    <span class="b-nav__item__text">Project 4</span>
+                </li>
+                <li class="b-nav__item hover"><i class="material-icons icon-nav">description</i>
+                    <span class="b-nav__item__text">Project 5</span>
+                </li>
+            </ul>
+        </div>
+        <div class="b-content__work-space">
+            <div class="b-content__work-space__panel_top">
+                <span class="b-content__work-space__panel_top_name">Do list</span>
+                <div class="b-panel-top_right">
+                    <input type="search" class="input-search_top" placeholder="search" id="search-top">
+                    <label for="search-top" class="search-top-label"><i class="mdi mdi-magnify"></i></label>
+                    <span class="b-panel-top__messages">
+                        <i class="material-icons">notifications</i>
+                        <span class="b-panel-top__messages__counter">2</span>
+                    </span>
+                    <span class="b-panel-top__user">
+                        <span class="b-panel-top__user__image" style="background: url('images/users/user-admin.jpg')"></span><i class="mdi mdi-chevron-down"></i>
+                    </span>
+                </div>
+            </div>
+            <div id="container" class="scrollbar-inner">
+                <div class="b-content-row js-horizontal-scroll dragscroll">
+
+                    <!---><div class="b-content-row__cell js-horizontal-scroll__item">
+                        <div class="b-content-row__cell__content">
+                            <div class="b-content-priority">
+                                <span class="b-content-priority__text">Приоритет 1</span>
+                                <span class="b-content-priority__nav">
+                                    <span class="b-content-priority__plus"><i class="mdi mdi-plus"></i></span>
+                                    <span class="b-content-priority__plus"><i class="mdi mdi-dots-vertical"></i></span>
+                                </span>
+                            </div>
+                            <div class="b-content-block">
+                                <input type="search" class="b-content-priority__input" placeholder="Enter name of new card...">
+                                <span class="b-content-priority__input__button">
+                                    <input type="submit" class="b-content-priority__submit" id="name-card"><label for="name-card"><i class="mdi mdi-check"></i></label>
+                                    <input type="reset" class="b-content-priority__reset" id="reset-name-card"><label for="reset-name-card"><i class="mdi mdi-close"></i></label>
+                                </span>
+                            </div>
+                            <div class="b-content-block">
+
+                                <!--b-content-block__card 1-->
+                                <div class="b-content-block__card">
+                                    <div class="b-content-block__card-padding">
+                                        <div class="b-content-block__card__status-line">
+                                            <span class="b-content-block__card__yellow"></span>
+                                            <span class="b-content-block__card__green"></span>
+                                            <span class="b-content-block__card__red"></span>
+                                        </div>
+                                        <p class="b-content-block__card__name">Name name</p>
+                                        <div class="b-content-block__card__user">
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                        </div>
+                                        <div class="b-content-block__card__status">
+                                            <div class="card-progress">
+                                                <div class="progress-bar" style="width: 0;"></div>
+                                            </div>
+                                            <span class="b-count-progress">0/3</span>
+                                        </div>
+                                    </div>
+                                    <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                        <div class="b-content-block__card__comment">
+                                            <i class="mdi mdi-comment"></i>
+                                            <span class="b-content-block__card__comment_count">14</span>
+                                        </div>
+                                        <div class="b-content-block__card__clip">
+                                            <i class="mdi mdi-paperclip"></i>
+                                            <span class="b-content-block__card__clip_count">8 files</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--b-content-block__card END-->
+
+                                <!--b-content-block__card 2-->
+                                <div class="b-content-block__card">
+                                    <div class="b-content-block__card-padding">
+                                        <div class="b-content-block__card__status-line">
+                                            <span class="b-content-block__card__green"></span>
+                                        </div>
+                                        <p class="b-content-block__card__name">Name name</p>
+                                        <div class="b-content-block__card__user">
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-4.jpg')"></span>
+                                        </div>
+                                        <div class="b-content-block__card__status">
+                                            <div class="card-progress">
+                                                <div class="progress-bar" style="width: 100%;"></div>
+                                            </div>
+                                            <i class="mdi mdi-checkbox-marked-circle"></i>
+                                        </div>
+                                    </div>
+                                    <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                        <div class="b-content-block__card__comment">
+                                            <i class="mdi mdi-comment"></i>
+                                            <span class="b-content-block__card__comment_count">1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--b-content-block__card END-->
+                                <!--b-content-block__card 3-->
+                                <div class="b-content-block__card">
+                                    <div class="b-content-block__card-padding">
+                                        <div class="b-content-block__card__status-line">
+                                        </div>
+                                        <p class="b-content-block__card__name">Name name</p>
+                                        <div class="b-content-block__card__user">
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                        </div>
+                                        <div class="b-content-block__card__status">
+                                            <div class="card-progress">
+                                                <div class="progress-bar" style="width: 100%;"></div>
+                                            </div>
+                                            <span class="b-count-progress">2/5</span>
+                                        </div>
+                                        <div class="b-content-block__card__status">
+                                            <div class="card-progress">
+                                                <div class="progress-bar" style="width: 0;"></div>
+                                            </div>
+                                            <span class="b-count-progress">0/2</span>
+                                        </div>
+                                        <div class="b-content-block__card__status">
+                                            <div class="card-progress">
+                                                <div class="progress-bar" style="width: 0;"></div>
+                                            </div>
+                                            <span class="b-count-progress">0/4</span>
+                                        </div>
+                                    </div>
+                                    <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                        <div class="b-content-block__card__comment">
+                                            <i class="mdi mdi-comment"></i>
+                                            <span class="b-content-block__card__comment_count">5</span>
+                                        </div>
+                                        <div class="b-content-block__card__clip">
+                                            <i class="mdi mdi-paperclip"></i>
+                                            <span class="b-content-block__card__clip_count">3 files</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--b-content-block__card END-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!---><div class="b-content-row__cell js-horizontal-scroll__item">
+                        <div class="b-content-row__cell__content">
+                            <div class="b-content-priority">
+                                <span class="b-content-priority__text">Приоритет 2</span>
+                                <span class="b-content-priority__nav">
+                                    <span class="b-content-priority__plus"><i class="mdi mdi-plus"></i></span>
+                                    <span class="b-content-priority__plus"><i class="mdi mdi-dots-vertical"></i></span>
+                                </span>
+                            </div>
+                            <div class="b-content-block">
+                                <input type="search" class="b-content-priority__input" placeholder="Enter name of new card...">
+                                <span class="b-content-priority__input__button">
+                                    <input type="submit" class="b-content-priority__submit" id="name-card"><label for="name-card"><i class="mdi mdi-check"></i></label>
+                                    <input type="reset" class="b-content-priority__reset" id="reset-name-card"><label for="reset-name-card"><i class="mdi mdi-close"></i></label>
+                                </span>
+                            </div>
+                            <div class="b-content-block">
+
+                                <!--b-content-block__card 1-->
+                                <div class="b-content-block__card">
+                                    <div class="b-content-block__card-padding">
+                                        <div class="b-content-block__card__status-line">
+                                            <span class="b-content-block__card__yellow"></span>
+                                        </div>
+                                        <p class="b-content-block__card__name">Name name</p>
+                                        <div class="b-content-block__card__user">
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-4.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-5.png')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-5.png')"></span>
+                                            <span class="b-content-block__card__avatar-number">+25</span>
+
+                                        </div>
+                                        <div class="b-content-block__card__status">
+                                            <div class="card-progress">
+                                                <div class="progress-bar" style="width: 0;"></div>
+                                            </div>
+                                            <span class="b-count-progress">0/3</span>
+                                        </div>
+                                    </div>
+                                    <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                        <div class="b-content-block__card__comment">
+                                            <i class="mdi mdi-comment"></i>
+                                            <span class="b-content-block__card__comment_count">7</span>
+                                        </div>
+                                        <div class="b-content-block__card__clip">
+                                            <i class="mdi mdi-paperclip"></i>
+                                            <span class="b-content-block__card__clip_count">1 files</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--b-content-block__card END-->
+
+                                <!--b-content-block__card 2-->
+                                <div class="b-content-block__card">
+                                    <div class="b-content-block__card-padding">
+                                        <div class="b-content-block__card__status-line">
+                                            <span class="b-content-block__card__green"></span>
+                                        </div>
+                                        <p class="b-content-block__card__name">Name name</p>
+                                        <div class="b-content-block__card__user">
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-4.jpg')"></span>
+                                        </div>
+                                        <div class="b-content-block__card__status">
+                                            <div class="card-progress">
+                                                <div class="progress-bar" style="width: 100%;"></div>
+                                            </div>
+                                            <i class="mdi mdi-checkbox-marked-circle"></i>
+                                        </div>
+                                    </div>
+                                    <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                        <div class="b-content-block__card__comment">
+                                            <i class="mdi mdi-comment"></i>
+                                            <span class="b-content-block__card__comment_count">7</span>
+                                        </div>
+                                        <div class="b-content-block__card__clip">
+                                            <i class="mdi mdi-paperclip"></i>
+                                            <span class="b-content-block__card__clip_count">15 files</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--b-content-block__card END-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!---><div class="b-content-row__cell js-horizontal-scroll__item">
+                        <div class="b-content-row__cell__content">
+                            <div class="b-content-priority">
+                                <span class="b-content-priority__text">Приоритет 3</span>
+                                <span class="b-content-priority__nav">
+                                    <span class="b-content-priority__plus"><i class="mdi mdi-plus"></i></span>
+                                    <span class="b-content-priority__plus"><i class="mdi mdi-dots-vertical"></i></span>
+                                </span>
+                            </div>
+                            <div class="b-content-block">
+                                <input type="search" class="b-content-priority__input" placeholder="Enter name of new card...">
+                                <span class="b-content-priority__input__button">
+                                    <input type="submit" class="b-content-priority__submit" id="name-card"><label for="name-card"><i class="mdi mdi-check"></i></label>
+                                    <input type="reset" class="b-content-priority__reset" id="reset-name-card"><label for="reset-name-card"><i class="mdi mdi-close"></i></label>
+                                </span>
+                            </div>
+                            <div class="b-content-block">
+
+                                <!--b-content-block__card 1-->
+                                <div class="b-content-block__card">
+                                    <div class="b-content-block__card-padding">
+                                        <div class="b-content-block__card__status-line">
+                                            <span class="b-content-block__card__yellow"></span>
+                                        </div>
+                                        <p class="b-content-block__card__name">Name name</p>
+                                        <div class="b-content-block__card__user">
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-4.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-5.png')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-5.png')"></span>
+                                            <span class="b-content-block__card__avatar-number">+8</span>
+                                        </div>
+                                        <div class="b-content-block__card__status">
+                                            <div class="card-progress">
+                                                <div class="progress-bar" style="width: 0;"></div>
+                                            </div>
+                                            <span class="b-count-progress">0/3</span>
+                                        </div>
+                                    </div>
+                                    <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                        <div class="b-content-block__card__comment">
+                                            <i class="mdi mdi-comment"></i>
+                                            <span class="b-content-block__card__comment_count">2</span>
+                                        </div>
+                                        <div class="b-content-block__card__clip">
+                                            <i class="mdi mdi-paperclip"></i>
+                                            <span class="b-content-block__card__clip_count">1 files</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--b-content-block__card END-->
+
+                                <!--b-content-block__card 2-->
+                                <div class="b-content-block__card">
+                                    <div class="b-content-block__card-padding">
+                                        <div class="b-content-block__card__status-line">
+                                            <span class="b-content-block__card__green"></span>
+                                            <span class="b-content-block__card__blue"></span>
+                                        </div>
+                                        <p class="b-content-block__card__name">Name name</p>
+                                        <div class="b-content-block__card__user">
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-4.jpg')"></span>
+                                        </div>
+                                        <div class="b-content-block__card__status">
+                                            <div class="b-card-checked-bar">
+                                                    <div id="checked" class="checkbox-box"></div><span>Update links in profile settings</span><br>
+                                                    <div id="unchecked" class="checkbox-box"></div><span>The setting icon should be...</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                        <div class="b-content-block__card__comment">
+                                            <i class="mdi mdi-comment"></i>
+                                            <span class="b-content-block__card__comment_count">1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--b-content-block__card END-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!---><div class="b-content-row__cell js-horizontal-scroll__item">
+                        <div class="b-content-row__cell__content">
+                            <div class="b-content-priority">
+                                <span class="b-content-priority__text">Приоритет 4</span>
+                                <span class="b-content-priority__nav">
+                                    <span class="b-content-priority__plus"><i class="mdi mdi-plus"></i></span>
+                                    <span class="b-content-priority__plus"><i class="mdi mdi-dots-vertical"></i></span>
+                                </span>
+                            </div>
+                            <div class="b-content-block">
+                                <input type="search" class="b-content-priority__input" placeholder="Enter name of new card...">
+                                <span class="b-content-priority__input__button">
+                                    <input type="submit" class="b-content-priority__submit" id="name-card"><label for="name-card"><i class="mdi mdi-check"></i></label>
+                                    <input type="reset" class="b-content-priority__reset" id="reset-name-card"><label for="reset-name-card"><i class="mdi mdi-close"></i></label>
+                                </span>
+                            </div>
+                            <div class="b-content-block">
+
+                                <!--b-content-block__card 1-->
+                                <div class="b-content-block__card">
+                                    <div class="b-content-block__card-padding">
+                                        <div class="b-content-block__card__status-line">
+                                            <span class="b-content-block__card__yellow"></span>
+                                            <span class="b-content-block__card__green"></span>
+                                            <span class="b-content-block__card__red"></span>
+                                        </div>
+                                        <p class="b-content-block__card__name">Name name</p>
+                                        <div class="b-content-block__card__user">
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                        </div>
+                                        <div class="b-content-block__card__status">
+                                            <div class="card-progress">
+                                                <div class="progress-bar" style="width: 0;"></div>
+                                            </div>
+                                            <span class="b-count-progress">0/3</span>
+                                        </div>
+                                    </div>
+                                    <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                        <div class="b-content-block__card__comment">
+                                            <i class="mdi mdi-comment"></i>
+                                            <span class="b-content-block__card__comment_count">14</span>
+                                        </div>
+                                        <div class="b-content-block__card__clip">
+                                            <i class="mdi mdi-paperclip"></i>
+                                            <span class="b-content-block__card__clip_count">8 files</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--b-content-block__card END-->
+
+                                <!--b-content-block__card 2-->
+                                <div class="b-content-block__card">
+                                    <div class="b-content-block__card-padding">
+                                        <div class="b-content-block__card__status-line">
+                                        </div>
+                                        <p class="b-content-block__card__name">Name name</p>
+                                        <div class="b-content-block__card__user">
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                        </div>
+                                        <div class="b-content-block__card__status">
+                                            <div class="card-progress">
+                                                <div class="progress-bar" style="width: 100%;"></div>
+                                            </div>
+                                            <span class="b-count-progress">2/5</span>
+                                        </div>
+                                        <div class="b-content-block__card__status">
+                                            <div class="card-progress">
+                                                <div class="progress-bar" style="width: 0;"></div>
+                                            </div>
+                                            <span class="b-count-progress">0/2</span>
+                                        </div>
+                                        <div class="b-content-block__card__status">
+                                            <div class="card-progress">
+                                                <div class="progress-bar" style="width: 0;"></div>
+                                            </div>
+                                            <span class="b-count-progress">0/4</span>
+                                        </div>
+                                    </div>
+                                    <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                        <div class="b-content-block__card__comment">
+                                            <i class="mdi mdi-comment"></i>
+                                            <span class="b-content-block__card__comment_count">5</span>
+                                        </div>
+                                        <div class="b-content-block__card__clip">
+                                            <i class="mdi mdi-paperclip"></i>
+                                            <span class="b-content-block__card__clip_count">3 files</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--b-content-block__card END-->
+                                <!--b-content-block__card 3-->
+                                <div class="b-content-block__card">
+                                    <div class="b-content-block__card-padding">
+                                        <div class="b-content-block__card__status-line">
+                                            <span class="b-content-block__card__green"></span>
+                                        </div>
+                                        <p class="b-content-block__card__name">Name name</p>
+                                        <div class="b-content-block__card__user">
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-4.jpg')"></span>
+                                        </div>
+                                        <div class="b-content-block__card__status">
+                                            <div class="card-progress">
+                                                <div class="progress-bar" style="width: 100%;"></div>
+                                            </div>
+                                            <i class="mdi mdi-checkbox-marked-circle"></i>
+                                        </div>
+                                    </div>
+                                    <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                        <div class="b-content-block__card__comment">
+                                            <i class="mdi mdi-comment"></i>
+                                            <span class="b-content-block__card__comment_count">7</span>
+                                        </div>
+                                        <div class="b-content-block__card__clip">
+                                            <i class="mdi mdi-paperclip"></i>
+                                            <span class="b-content-block__card__clip_count">15 files</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--b-content-block__card END-->
+                                <!--b-content-block__card 4-->
+                                <div class="b-content-block__card">
+                                    <div class="b-content-block__card-padding">
+                                        <div class="b-content-block__card__status-line">
+                                            <span class="b-content-block__card__green"></span>
+                                        </div>
+                                        <p class="b-content-block__card__name">Name name</p>
+                                        <div class="b-content-block__card__user">
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                            <span class="b-content-block__card__avatar" style="background: url('images/users/user-4.jpg')"></span>
+                                        </div>
+                                        <div class="b-content-block__card__status">
+                                            <div class="card-progress">
+                                                <div class="progress-bar" style="width: 100%;"></div>
+                                            </div>
+                                            <i class="mdi mdi-checkbox-marked-circle"></i>
+                                        </div>
+                                    </div>
+                                    <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                        <div class="b-content-block__card__comment">
+                                            <i class="mdi mdi-comment"></i>
+                                            <span class="b-content-block__card__comment_count">7</span>
+                                        </div>
+                                        <div class="b-content-block__card__clip">
+                                            <i class="mdi mdi-paperclip"></i>
+                                            <span class="b-content-block__card__clip_count">15 files</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--b-content-block__card END-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!---><div class="b-content-row__cell js-horizontal-scroll__item">
+                    <div class="b-content-row__cell__content">
+                        <div class="b-content-priority">
+                            <span class="b-content-priority__text">Приоритет 5</span>
+                            <span class="b-content-priority__nav">
+                                    <span class="b-content-priority__plus"><i class="mdi mdi-plus"></i></span>
+                                    <span class="b-content-priority__plus"><i class="mdi mdi-dots-vertical"></i></span>
+                                </span>
+                        </div>
+                        <div class="b-content-block">
+                            <input type="search" class="b-content-priority__input" placeholder="Enter name of new card...">
+                            <span class="b-content-priority__input__button">
+                                    <input type="submit" class="b-content-priority__submit" id="name-card"><label for="name-card"><i class="mdi mdi-check"></i></label>
+                                    <input type="reset" class="b-content-priority__reset" id="reset-name-card"><label for="reset-name-card"><i class="mdi mdi-close"></i></label>
+                                </span>
+                        </div>
+                        <div class="b-content-block">
+
+                            <!--b-content-block__card 1-->
+                            <div class="b-content-block__card">
+                                <div class="b-content-block__card-padding">
+                                    <div class="b-content-block__card__status-line">
+                                        <span class="b-content-block__card__yellow"></span>
+                                        <span class="b-content-block__card__green"></span>
+                                        <span class="b-content-block__card__red"></span>
+                                    </div>
+                                    <p class="b-content-block__card__name">Name name</p>
+                                    <div class="b-content-block__card__user">
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                    </div>
+                                    <div class="b-content-block__card__status">
+                                        <div class="card-progress">
+                                            <div class="progress-bar" style="width: 0;"></div>
+                                        </div>
+                                        <span class="b-count-progress">0/3</span>
+                                    </div>
+                                </div>
+                                <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                    <div class="b-content-block__card__comment">
+                                        <i class="mdi mdi-comment"></i>
+                                        <span class="b-content-block__card__comment_count">14</span>
+                                    </div>
+                                    <div class="b-content-block__card__clip">
+                                        <i class="mdi mdi-paperclip"></i>
+                                        <span class="b-content-block__card__clip_count">8 files</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--b-content-block__card END-->
+
+                            <!--b-content-block__card 2-->
+                            <div class="b-content-block__card">
+                                <div class="b-content-block__card-padding">
+                                    <div class="b-content-block__card__status-line">
+                                    </div>
+                                    <p class="b-content-block__card__name">Name name</p>
+                                    <div class="b-content-block__card__user">
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                    </div>
+                                    <div class="b-content-block__card__status">
+                                        <div class="card-progress">
+                                            <div class="progress-bar" style="width: 100%;"></div>
+                                        </div>
+                                        <span class="b-count-progress">2/5</span>
+                                    </div>
+                                    <div class="b-content-block__card__status">
+                                        <div class="card-progress">
+                                            <div class="progress-bar" style="width: 0;"></div>
+                                        </div>
+                                        <span class="b-count-progress">0/2</span>
+                                    </div>
+                                    <div class="b-content-block__card__status">
+                                        <div class="card-progress">
+                                            <div class="progress-bar" style="width: 0;"></div>
+                                        </div>
+                                        <span class="b-count-progress">0/4</span>
+                                    </div>
+                                </div>
+                                <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                    <div class="b-content-block__card__comment">
+                                        <i class="mdi mdi-comment"></i>
+                                        <span class="b-content-block__card__comment_count">5</span>
+                                    </div>
+                                    <div class="b-content-block__card__clip">
+                                        <i class="mdi mdi-paperclip"></i>
+                                        <span class="b-content-block__card__clip_count">3 files</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--b-content-block__card END-->
+                            <!--b-content-block__card 3-->
+                            <div class="b-content-block__card">
+                                <div class="b-content-block__card-padding">
+                                    <div class="b-content-block__card__status-line">
+                                        <span class="b-content-block__card__green"></span>
+                                    </div>
+                                    <p class="b-content-block__card__name">Name name</p>
+                                    <div class="b-content-block__card__user">
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-4.jpg')"></span>
+                                    </div>
+                                    <div class="b-content-block__card__status">
+                                        <div class="card-progress">
+                                            <div class="progress-bar" style="width: 100%;"></div>
+                                        </div>
+                                        <i class="mdi mdi-checkbox-marked-circle"></i>
+                                    </div>
+                                </div>
+                                <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                    <div class="b-content-block__card__comment">
+                                        <i class="mdi mdi-comment"></i>
+                                        <span class="b-content-block__card__comment_count">7</span>
+                                    </div>
+                                    <div class="b-content-block__card__clip">
+                                        <i class="mdi mdi-paperclip"></i>
+                                        <span class="b-content-block__card__clip_count">15 files</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--b-content-block__card END-->
+                            <!--b-content-block__card 4-->
+                            <div class="b-content-block__card">
+                                <div class="b-content-block__card-padding">
+                                    <div class="b-content-block__card__status-line">
+                                        <span class="b-content-block__card__green"></span>
+                                    </div>
+                                    <p class="b-content-block__card__name">Name name</p>
+                                    <div class="b-content-block__card__user">
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-4.jpg')"></span>
+                                    </div>
+                                    <div class="b-content-block__card__status">
+                                        <div class="card-progress">
+                                            <div class="progress-bar" style="width: 100%;"></div>
+                                        </div>
+                                        <i class="mdi mdi-checkbox-marked-circle"></i>
+                                    </div>
+                                </div>
+                                <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                    <div class="b-content-block__card__comment">
+                                        <i class="mdi mdi-comment"></i>
+                                        <span class="b-content-block__card__comment_count">7</span>
+                                    </div>
+                                    <div class="b-content-block__card__clip">
+                                        <i class="mdi mdi-paperclip"></i>
+                                        <span class="b-content-block__card__clip_count">15 files</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--b-content-block__card END-->
+                        </div>
+                    </div>
+                </div>
+
+                    <!---><div class="b-content-row__cell js-horizontal-scroll__item">
+                    <div class="b-content-row__cell__content">
+                        <div class="b-content-priority">
+                            <span class="b-content-priority__text">Приоритет 6</span>
+                            <span class="b-content-priority__nav">
+                                    <span class="b-content-priority__plus"><i class="mdi mdi-plus"></i></span>
+                                    <span class="b-content-priority__plus"><i class="mdi mdi-dots-vertical"></i></span>
+                                </span>
+                        </div>
+                        <div class="b-content-block">
+                            <input type="search" class="b-content-priority__input" placeholder="Enter name of new card...">
+                            <span class="b-content-priority__input__button">
+                                    <input type="submit" class="b-content-priority__submit" id="name-card"><label for="name-card"><i class="mdi mdi-check"></i></label>
+                                    <input type="reset" class="b-content-priority__reset" id="reset-name-card"><label for="reset-name-card"><i class="mdi mdi-close"></i></label>
+                                </span>
+                        </div>
+                        <div class="b-content-block">
+
+                            <!--b-content-block__card 1-->
+                            <div class="b-content-block__card">
+                                <div class="b-content-block__card-padding">
+                                    <div class="b-content-block__card__status-line">
+                                        <span class="b-content-block__card__yellow"></span>
+                                        <span class="b-content-block__card__green"></span>
+                                        <span class="b-content-block__card__red"></span>
+                                    </div>
+                                    <p class="b-content-block__card__name">Name name</p>
+                                    <div class="b-content-block__card__user">
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                    </div>
+                                    <div class="b-content-block__card__status">
+                                        <div class="card-progress">
+                                            <div class="progress-bar" style="width: 0;"></div>
+                                        </div>
+                                        <span class="b-count-progress">0/3</span>
+                                    </div>
+                                </div>
+                                <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                    <div class="b-content-block__card__comment">
+                                        <i class="mdi mdi-comment"></i>
+                                        <span class="b-content-block__card__comment_count">14</span>
+                                    </div>
+                                    <div class="b-content-block__card__clip">
+                                        <i class="mdi mdi-paperclip"></i>
+                                        <span class="b-content-block__card__clip_count">8 files</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--b-content-block__card END-->
+
+                            <!--b-content-block__card 2-->
+                            <div class="b-content-block__card">
+                                <div class="b-content-block__card-padding">
+                                    <div class="b-content-block__card__status-line">
+                                        <span class="b-content-block__card__green"></span>
+                                    </div>
+                                    <p class="b-content-block__card__name">Name name</p>
+                                    <div class="b-content-block__card__user">
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-4.jpg')"></span>
+                                    </div>
+                                    <div class="b-content-block__card__status">
+                                        <div class="card-progress">
+                                            <div class="progress-bar" style="width: 100%;"></div>
+                                        </div>
+                                        <i class="mdi mdi-checkbox-marked-circle"></i>
+                                    </div>
+                                </div>
+                                <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                    <div class="b-content-block__card__comment">
+                                        <i class="mdi mdi-comment"></i>
+                                        <span class="b-content-block__card__comment_count">1</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--b-content-block__card END-->
+                            <!--b-content-block__card 3-->
+                            <div class="b-content-block__card">
+                                <div class="b-content-block__card-padding">
+                                    <div class="b-content-block__card__status-line">
+                                    </div>
+                                    <p class="b-content-block__card__name">Name name</p>
+                                    <div class="b-content-block__card__user">
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-1.jpg')"></span>
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-2.jpg')"></span>
+                                        <span class="b-content-block__card__avatar" style="background: url('images/users/user-3.jpg')"></span>
+                                    </div>
+                                    <div class="b-content-block__card__status">
+                                        <div class="card-progress">
+                                            <div class="progress-bar" style="width: 100%;"></div>
+                                        </div>
+                                        <span class="b-count-progress">2/5</span>
+                                    </div>
+                                    <div class="b-content-block__card__status">
+                                        <div class="card-progress">
+                                            <div class="progress-bar" style="width: 0;"></div>
+                                        </div>
+                                        <span class="b-count-progress">0/2</span>
+                                    </div>
+                                    <div class="b-content-block__card__status">
+                                        <div class="card-progress">
+                                            <div class="progress-bar" style="width: 0;"></div>
+                                        </div>
+                                        <span class="b-count-progress">0/4</span>
+                                    </div>
+                                </div>
+                                <div class="b-content-block__card_bottom b-content-block__card-padding">
+                                    <div class="b-content-block__card__comment">
+                                        <i class="mdi mdi-comment"></i>
+                                        <span class="b-content-block__card__comment_count">5</span>
+                                    </div>
+                                    <div class="b-content-block__card__clip">
+                                        <i class="mdi mdi-paperclip"></i>
+                                        <span class="b-content-block__card__clip_count">3 files</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--b-content-block__card END-->
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function(){
+            $("#checked").dxCheckBox({
+                value: true
+            });
+
+            $("#unchecked").dxCheckBox({
+                value: false
+            });
+
+            $("#indeterminate").dxCheckBox({
+                value: undefined
+            });
+
+            $("#handler").dxCheckBox({
+                value: undefined,
+                onValueChanged: function(data) {
+                    disabledCheckbox.option("value", data.value);
+                }
+            });
+
+            var disabledCheckbox = $("#disabled").dxCheckBox({
+                value: undefined,
+                disabled: true
+            }).dxCheckBox("instance");
+
+            $("#withText").dxCheckBox({
+                value: true,
+                width: 80,
+                text: "Check"
+            });
+        });
+    </script>
+</body>
+</html>
